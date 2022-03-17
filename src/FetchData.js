@@ -2,19 +2,20 @@ import {useState , useEffect} from 'react'
 
 import './FetchData.css'
 
-function FetchData(props){
+function FetchData(){
 
     const [data, setData] = useState([]);
 
     useEffect(()=>{
+
         fetch("https://ghibliapi.herokuapp.com/films").then((res)=>{
           return res.json();
-       }).then((data)=>  setData(data)) 
+       }).then((data)=>  setData(data)) ;
+
     },[]);
 
     return(
         <>
-            
             {data.map((el)=>{
                 return (
                     <div key={el.id}>
@@ -31,7 +32,6 @@ function FetchData(props){
             
         </>
     )
-
     
 }
 
